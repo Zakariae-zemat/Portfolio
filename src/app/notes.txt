@@ -1,0 +1,8 @@
+Frontend Development: HTML, CSS, Tailwind CSS, JavaScript, React, Next.js
+Backend Development: Spring Boot
+Mobile Development: Flutter
+Programming Languages: Java, C, Dart, Python
+Databases: MySQL, PostgreSQL, Oracle
+UML, Merise, Scrum, Jira
+
+Tools Git, GitHub, Docker, CI/CD, Kafka, Postman, ETL (Extract, Transform, Load)
