@@ -1,12 +1,12 @@
 "use client";
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const socialIcons = [
   { icon: <FaFacebookF />, link: 'https://facebook.com' },
-  { icon: <FaLinkedinIn />, link: 'https://linkedin.com' },
-  { icon: <FaGithub />, link: 'https://github.com' },
+  { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/zemat-zakariae-9bb220288/' },
+  { icon: <FaGithub />, link: 'https://github.com/Zakariae-zemat' },
   { icon: <FaInstagram />, link: 'https://instagram.com' },
 ];
 

@@ -1,13 +1,14 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaLink, FaCode } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function ProjectCard({ title, description, imageSrc, techStack, type, githubLink }) {
+export default function ProjectCard({ title, description, imageSrc, techStack, type, githubLink, comingSoon }) {
     const controls = useAnimation();
     const { ref, inView } = useInView({ triggerOnce: false });
+    const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
         if (inView) {
@@ -75,7 +76,22 @@ export default function ProjectCard({ title, description, imageSrc, techStack, t
 
                 {/* GitHub Link Section */}
                 <div className="flex items-center gap-2 mt-4 md:mt-6">
-                    {githubLink && (
+                    {githubLink && comingSoon ? (
+                        <div className="relative">
+                            <span 
+                                className="flex items-center gap-2 text-gray-400 cursor-not-allowed"
+                                onMouseEnter={() => setShowTooltip(true)}
+                                onMouseLeave={() => setShowTooltip(false)}
+                            >
+                                <FaLink size={15} /> <span>Source</span>
+                            </span>
+                            {showTooltip && (
+                                <div className="absolute -bottom-8 left-0 bg-gray-800 text-white text-xs py-1 px-2 rounded">
+                                    Coming soon
+                                </div>
+                            )}
+                        </div>
+                    ) : githubLink && (
                         <a
                             href={githubLink}
                             target="_blank"

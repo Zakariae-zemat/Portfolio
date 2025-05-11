@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
-import SettingsTree from '../Components/Setting';
 
 export default function StarshipNavbar() {
   const [activeSection, setActiveSection] = useState('/');
@@ -41,7 +40,7 @@ export default function StarshipNavbar() {
     { href: '#aboutme', label: 'AboutMe' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
-    { href: '#experiences', label: 'Experience' },
+    { href: '#experiences', label: 'Experiences' },
   ];
 
   // Menu toggle animation variants
@@ -109,9 +108,6 @@ export default function StarshipNavbar() {
               </motion.div>
             </Link>
           ))}
-
-          {/* Settings Icon Component */}
-          <SettingsTree />
         </div>
       </nav>
 
@@ -177,11 +173,6 @@ export default function StarshipNavbar() {
               </Link>
             </motion.div>
           ))}
-          
-          {/* Mobile Settings */}
-          <motion.div variants={itemVariants} className="mt-4 w-full flex justify-center">
-            <SettingsTree />
-          </motion.div>
         </motion.div>
       </nav>
     </>

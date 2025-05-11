@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
-import { Send, MessageCircle, User, Mail, ArrowRight, Globe, Loader } from 'lucide-react';
-import * as THREE from 'three';
+import { useState, useRef } from 'react';
+import { Send, User, Mail, ArrowRight, Loader } from 'lucide-react';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   
@@ -17,12 +15,6 @@ export default function ContactSection() {
   });
 
   const formRef = useRef(null);
-  const globeContainerRef = useRef(null);
-  const rendererRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
-  const globeRef = useRef(null);
-  const frameIdRef = useRef(null);
 
   const handleChange = (e) => {
     setFormState({
@@ -30,12 +22,53 @@ export default function ContactSection() {
       [e.target.name]: e.target.value
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus({ isSending: true, isSent: false, error: null });
+
+    // Create a hidden form element
+    const form = document.createElement('form');
+    form.style.display = 'none';
+    form.method = 'POST';
+    form.action = 'https://formsubmit.co/zakariaezemat@gmail.com';
+    
+    // Add form data
+    const addField = (name, value) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+    };
+    
+    addField('name', formState.name);
+    addField('email', formState.email);
+    addField('message', formState.message);
+    addField('_captcha', 'false');
+    addField('_next', 'https://zemat-zakariae.vercel.app/');
+    addField('_template', 'table');
+    
+    // Show success message BEFORE submitting
+    setFormStatus({ isSending: false, isSent: true, error: null });
+    
+    // Clear form inputs
+    setFormState({ name: '', email: '', message: '' });
+    
+    // Add the form to body, submit it, and set a timeout for redirect
+    document.body.appendChild(form);
+    
+    // Set timeout to submit the form after showing success message
+    setTimeout(() => {
+      form.submit();
+    }, 3000); // Show success message for 3 seconds before submitting
+  };
+
   return (
     <div className="w-full py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="flex flex-col items-center mb-16">
-          
           <h2 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-4">
             Let's Connect
           </h2>
@@ -60,29 +93,10 @@ export default function ContactSection() {
                     </div>
                     <h4 className="text-xl font-bold text-blue-100 mb-2">Message Sent!</h4>
                     <p className="text-blue-200">Thank you for reaching out. I'll get back to you soon.</p>
+                    <p className="text-blue-300 text-sm mt-4">Redirecting you back to the homepage in a few seconds...</p>
                   </div>
                 ) : (
-                  <form 
-                    ref={formRef}
-                    action="https://formsubmit.co/zakariaezemat@gmail.com" 
-                    method="POST"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setFormStatus({ isSending: true, isSent: false, error: null });
-                      
-                      formRef.current.submit();
-                      
-                      setTimeout(() => {
-                        setFormStatus({ isSending: false, isSent: true, error: null });
-                        setFormState({ name: '', email: '', subject: '', message: '' });
-                      }, 1500);
-                    }}
-                  >
-                    {/* Hidden FormSubmit fields */}
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_next" value="https://your-website.com/thank-you" />
-                    <input type="hidden" name="_template" value="table" />
-                    
+                  <div>
                     <div className="space-y-6">
                       {/* Name field */}
                       <div className="relative">
@@ -135,9 +149,16 @@ export default function ContactSection() {
                         />
                       </div>
                       
+                      {/* Error message */}
+                      {formStatus.error && (
+                        <div className="bg-red-400/20 border border-red-400/30 text-red-100 p-3 rounded-lg text-sm">
+                          {formStatus.error}
+                        </div>
+                      )}
+                      
                       {/* Submit button */}
                       <button
-                        type="submit"
+                        onClick={handleSubmit}
                         disabled={formStatus.isSending}
                         className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
                       >
@@ -157,7 +178,7 @@ export default function ContactSection() {
                         </span>
                       </button>
                     </div>
-                  </form>
+                  </div>
                 )}
               </div>
             </div>

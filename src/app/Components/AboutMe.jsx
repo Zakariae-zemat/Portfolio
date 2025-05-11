@@ -27,7 +27,7 @@ const AboutMe = () => {
         </div>
 
         <p className="text-gray-300 text-lg leading-relaxed">
-          I’m Zakariae Zemat, a passionate Software Engineer dedicated to solving complex problems through code. I thrive on blending technology with creativity, turning innovative ideas into functional digital solutions. Whether I’m crafting intuitive web applications or refining user experiences, I’m constantly pushing myself to deliver impactful results. 
+          I’m Zakariae Zemat, a passionate Software Engineer dedicated to solving problems through code. I thrive on blending technology with creativity, turning innovative ideas into functional solutions. Whether I’m crafting intuitive web applications or refining user experiences, I’m constantly pushing myself to deliver impactful results. 
           <br />
           <br />
           <em>In my free time, I enjoy watching series, movies, and podcasts, as well as following football games.</em>

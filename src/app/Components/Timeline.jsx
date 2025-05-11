@@ -5,16 +5,13 @@ import { GraduationCap, Code, University, Wrench, Rocket } from 'lucide-react';
 import { FaBriefcase, FaUserTie } from 'react-icons/fa';
 
 const timelineData = [
-    { date: "2020 - 2021", title: "Baccalaureate", institution: "Al Mohammadia High School", description: "Completed high school with a Baccalaureate diploma", icon: <GraduationCap /> },
     { date: "2021 - 2023", title: "University Diploma in Science and Technology", institution: "Faculty of Sciences and Techniques of Errachidia", description: "Obtained a diploma in science and technology", icon: <GraduationCap /> },
     { date: "2023 - Present", title: "Engineering Degree in Computer Science", institution: "Faculty of Sciences and Techniques of Settat", description: "Currently pursuing an engineering degree in computer science", icon: <University /> },
-    { date: "March 2nd, 2024", title: "Itholic Programming Competition V3", institution: "ENSIAS IT Club", description: "Participated in the Itholic Programming Competition organized by ENSIAS IT Club V3.", icon: <Code /> },
-    { date: "March 9th, 2024", title: "AMPC3 CP Competition", institution: "Gadz'IT-Club Informatique", description: "Participated in the AMPC3 CP Competition organized by ENSAM Meknes.", icon: <Code /> },
+    { date: "March 2nd, 2024 / March 16th, 2025 ", title: "Itholic CP v3 & v4", institution: "ENSIAS IT Club", description: "Participated in both version 3 & 4 of the Itholic Programming Competition organized by ENSIAS IT Club.", icon: <Code /> },
+    { date: "March 9th, 2024", title: "AMPC3 Competition", institution: "Gadz'IT-Club Informatique", description: "Participated in the AMPC3 CP Competition organized by ENSAM Meknes.", icon: <Code /> },
     { date: "June 2024 - August 2024", title: "PFA Internship", institution: "YHS Consulting (French Startup)", description: "Developed a full-stack real-time job offers platform during an internship. Captures data from external APIs, processes it with Kafka and Talend ETL, stores it in MySQL, and displays it via a web platform.", icon: <FaBriefcase /> },
-    { date: "November 26th, 2024", title: "MLOps Hackathon", institution: "Dataverse Club", description: "Participated in the MLOps Hackathon organized by ENSET Khouribga.", icon: <Rocket /> },
-    { date: "March 2025 - Present", title: "Student Magazine Web Platform", institution: "IMPACT Club", description: "Built a magazine platform using Spring Boot, Next.js, PostgreSQL, integrated CI/CD with GitHub Actions.", icon: <Wrench /> },
+    { date: "November 26th, 2024", title: "MLOps Hackathon", institution: "Dataverse Club", description: "Participated in the MLOps Hackathon organized by ENSA Khouribga.", icon: <Rocket /> },
     { date: "2025 - Present", title: "Vice President of IMPACT Club", institution: "IMPACT Club", description: "Serving as Vice President of the club IMPACT, contributing to leadership and project coordination.", icon: <FaUserTie /> },
-    { date: "March 16th, 2025", title: "Itholic Programming Competition V4", institution: "ENSIAS IT Club", description: "Participated in the Itholic Programming Competition organized by ENSIAS IT Club V4.", icon: <Code /> },
     { date: "April 12th, 2025", title: "CodEMI 2025 CP Competition", institution: "ESI", description: "Participated in the CodEMI 2025 competitive programming contest.", icon: <Code /> },
     { date: "April 6th - April 26th, 2025", title: "OpportunAI Hackathon", institution: "EMSI Casablanca", description: "Participated in OpportunAI hackathon and won 4th place with LifeLinkAI project.", icon: <Rocket /> },
     { date: "April 26th - April 27th, 2025", title: "Code IT v8 Hackathon", institution: "EHTP", description: "Built an AI-driven solution in 2 days during a hackathon focused on societal challenges.", icon: <Rocket /> }

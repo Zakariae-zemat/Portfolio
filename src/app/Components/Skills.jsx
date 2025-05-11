@@ -1,27 +1,27 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaJava, FaPython, FaGitAlt, FaDocker, FaGithub } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt,FaFigma, FaJs, FaReact, FaJava, FaPython, FaGitAlt, FaDocker, FaGithub } from 'react-icons/fa';
 import { SiNextdotjs, SiSpringboot, SiFlutter, SiMysql, SiPostgresql, SiOracle, SiUml, SiJira, SiPostman, SiKubernetes, SiC, SiTailwindcss, SiApachekafka, SiDart } from 'react-icons/si';
 import { TbCloudCog, TbHexagonLetterM, TbDatabase } from 'react-icons/tb';
 
 const skills = [
+    { name: "C", icon: <SiC className="text-gray-400" /> },
+    { name: "Python", icon: <FaPython className="text-yellow-300" /> },
+    { name: "Java", icon: <FaJava className="text-red-400" /> },
+    { name: "Dart", icon: <SiDart className="text-blue-500" /> },
+    { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
     { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
     { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
-    { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
     { name: "React", icon: <FaReact className="text-cyan-400" /> },
     { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
     { name: "Flutter", icon: <SiFlutter className="text-blue-300" /> },
     { name: "Spring Boot", icon: <SiSpringboot className="text-green-400" /> },
-    { name: "Java", icon: <FaJava className="text-red-400" /> },
-    { name: "Python", icon: <FaPython className="text-yellow-300" /> },
-    { name: "Dart", icon: <SiDart className="text-blue-500" /> },
-    { name: "C", icon: <SiC className="text-gray-400" /> },
-    { name: "Kafka", icon: <SiApachekafka className="text-purple-400" /> },
-    { name: "ETL", icon: <TbDatabase className="text-cyan-400" /> },
     { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
     { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
     { name: "Oracle", icon: <SiOracle className="text-red-500" /> },
+    { name: "Kafka", icon: <SiApachekafka className="text-purple-400" /> },
+    { name: "ETL", icon: <TbDatabase className="text-cyan-400" /> },
     { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
     { name: "GitHub", icon: <FaGithub className="text-gray-400" /> },
     { name: "Docker", icon: <FaDocker className="text-blue-400" /> },
@@ -29,7 +29,7 @@ const skills = [
     { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
     { name: "Jira & Scrum", icon: <SiJira className="text-blue-500" /> },
     { name: "UML", icon: <SiUml className="text-gray-400" /> },
-    { name: "Merise", icon: <TbHexagonLetterM className="text-yellow-400" /> }
+    { name: "Figma", icon: <FaFigma className="text-rose-300" /> }
 ];
 
 export default function Skills() {
