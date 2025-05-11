@@ -92,6 +92,9 @@ const Timeline = () => (
                 ))}
             </div>
         </motion.div>
+        <div className="mt-24 flex justify-center">
+          <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
+        </div>
     </div>
 );
 

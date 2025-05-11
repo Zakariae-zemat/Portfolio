@@ -56,6 +56,9 @@ const AboutMe = () => {
           <SocialMediaIcons className="text-xl" />
         </motion.div>
       </motion.div>
+      <div className="mt-16 flex justify-center">
+          <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
+        </div>
     </div>
   );
 };

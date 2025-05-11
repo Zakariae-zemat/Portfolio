@@ -67,6 +67,9 @@ export default function Projects() {
                     <ProjectCard key={index} {...project} />
                 ))}
             </div>
+            <div className="mt-16 flex justify-center">
+          <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
+        </div>
         </section>
     );
 }
