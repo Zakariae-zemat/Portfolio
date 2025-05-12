@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt,FaFigma, FaJs, FaReact, FaJava, FaPython, FaGitAlt, FaDocker, FaGithub } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaFigma, FaJs, FaReact, FaJava, FaPython, FaGitAlt, FaDocker, FaGithub } from 'react-icons/fa';
 import { SiNextdotjs, SiSpringboot, SiFlutter, SiMysql, SiPostgresql, SiOracle, SiUml, SiJira, SiPostman, SiKubernetes, SiC, SiTailwindcss, SiApachekafka, SiDart } from 'react-icons/si';
 import { TbCloudCog, TbHexagonLetterM, TbDatabase } from 'react-icons/tb';
 
@@ -43,28 +43,28 @@ export default function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <div className="flex flex-col items-center mb-16">
-          <h2 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-4">
-          Skills & Technologies
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
-        </div>
-
-            <div className="skills-grid grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 w-full max-w-5xl">
+                <h2 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-4">
+                    Skills & Technologies
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
+            </div>
+            
+            <div className="skills-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 w-full max-w-5xl">
                 {skills.map((skill, index) => (
-                    <div
+                    <motion.div
                         key={index}
-                        className="tile flex items-center gap-2 p-2 bg-[#1a1b3d] border border-cyan-500 
-                        rounded-lg shadow-md transition-all hover:scale-105 hover:shadow-cyan-400 cursor-pointer"
+                        className="tile flex items-center gap-2 p-3 bg-[#1a1b3d] border border-cyan-500 rounded-lg shadow-md hover:shadow-cyan-400 cursor-pointer"
+                        whileHover={{ scale: 1.05 }}
                     >
-                        <div className="text-3xl">{skill.icon}</div>
-                        <span className="text-sm">{skill.name}</span>
-                    </div>
+                        <div className="text-2xl">{skill.icon}</div>
+                        <span className="text-sm truncate">{skill.name}</span>
+                    </motion.div>
                 ))}
             </div>
+            
             <div className="mt-16 flex justify-center">
-          <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
-        </div>
+                <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
+            </div>
         </motion.section>
-        
     );
 }
