@@ -93,23 +93,25 @@ export default function DeveloperIntro() {
   };
 
   return (
-    <div className="min-h-[80vh] overflow-hidden flex flex-col items-start justify-center px-4 text-left">
+    <div className="min-h-[80vh] overflow-hidden flex flex-col items-start justify-center px-4 md:px-10 text-left">
       {/* Greeting with subtle animation */}
-      <h2 className="text-gray-300 text-2xl mb-6 ml-2 animate-fadeIn">{greeting}</h2>
+      <h2 className="text-gray-300 text-2xl mb-6 ml-2 animate-fadeIn max-w-full break-words">
+        {greeting}
+      </h2>
       
       {/* Name with subtle animation */}
-      <h1 className="font-bold text-6xl md:text-6xl text-white mb-4 animate-slideIn">
+      <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 animate-slideIn max-w-full break-words">
         {nameIntro}
       </h1>
       
       {/* Role with typing effect */}
-      <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent min-h-[50px]">
+      <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent min-h-[50px] max-w-full break-words">
         {currentRole}
         <span className="text-cyan-400 animate-pulse">{cursorVisible ? '|' : ''}</span>
       </h2>
       
       {/* Tagline */}
-      <p className="mt-4 text-xl italic text-gray-200">
+      <p className="mt-4 text-xl italic text-gray-200 max-w-full break-words">
         "Turning caffeine into clean code."
       </p>
       
@@ -119,7 +121,7 @@ export default function DeveloperIntro() {
       </p>
 
       {/* Buttons Section */}
-      <div className="mt-8 flex gap-6">
+      <div className="mt-8 flex flex-wrap gap-6">
         {/* CV Download Dropdown */}
         <div className="relative" ref={dropdownRef}>
           <Button
