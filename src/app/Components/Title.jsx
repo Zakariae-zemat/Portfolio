@@ -13,6 +13,7 @@ export default function DeveloperIntro() {
   const [cursorVisible, setCursorVisible] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   // Handle typing animation
   useEffect(() => {
@@ -63,7 +64,8 @@ export default function DeveloperIntro() {
   // Handle click outside to close dropdown
   useEffect(() => {
     function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && 
+          buttonRef.current && !buttonRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
     }
@@ -122,34 +124,44 @@ export default function DeveloperIntro() {
 
       {/* Buttons Section */}
       <div className="mt-8 flex flex-wrap gap-6">
-        {/* CV Download Dropdown */}
-        <div className="relative" ref={dropdownRef}>
-          <Button
-            icon={AiOutlineDownload}
-            text="Download CV"
-            onClick={toggleDropdown}
-            showLoading={false}
-            color="bg-blue-600"
-            customClasses="inline-flex items-center"
-          >
-            <HiChevronDown className="ml-2 -mr-1 h-5 w-5" />
-          </Button>
+        {/* CV Download Button with Dropdown */}
+        <div className="relative" style={{ zIndex: 100 }}>
+          <div ref={buttonRef}>
+            <Button
+              icon={AiOutlineDownload}
+              text="Download CV"
+              onClick={toggleDropdown}
+              showLoading={false}
+              color="bg-blue-600"
+              customClasses="inline-flex items-center"
+            >
+              <HiChevronDown className="ml-2 -mr-1 h-5 w-5" />
+            </Button>
+          </div>
           
-          {/* Language Selection Dropdown */}
+          {/* Dropdown positioned above the button */}
           {dropdownOpen && (
-            <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 z-10 animate-fadeIn">
-              <div className="py-1" role="menu" aria-orientation="vertical">
+            <div 
+              ref={dropdownRef}
+              className="absolute bottom-full left-0 mb-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5"
+              style={{ 
+                zIndex: 9999,
+                pointerEvents: 'auto',
+                display: 'block'
+              }}
+            >
+              <div className="py-1">
                 <button
                   onClick={() => downloadCV('english')}
                   className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white flex items-center"
-                  role="menuitem"
+                  style={{ cursor: 'pointer' }}
                 >
                   <span className="inline-block w-5 h-5 mr-2">🇬🇧</span> English
                 </button>
                 <button
                   onClick={() => downloadCV('french')}
                   className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white flex items-center"
-                  role="menuitem"
+                  style={{ cursor: 'pointer' }}
                 >
                   <span className="inline-block w-5 h-5 mr-2">🇫🇷</span> French
                 </button>
@@ -165,8 +177,6 @@ export default function DeveloperIntro() {
           color=""
         />
       </div>
-      
-      {/* You can add SocialMediaIcons here if needed */}
     </div>
   );
 }
