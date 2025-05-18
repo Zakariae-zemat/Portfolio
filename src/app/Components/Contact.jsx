@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Send, User, Mail, ArrowRight, Loader } from 'lucide-react';
+import { Send, User, Mail, ArrowRight, Loader, AlertCircle } from 'lucide-react';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({
@@ -14,17 +14,88 @@ export default function ContactSection() {
     error: null
   });
 
+  // Add validation state
+  const [validation, setValidation] = useState({
+    name: { valid: true, message: '' },
+    email: { valid: true, message: '' },
+    message: { valid: true, message: '' }
+  });
+
   const formRef = useRef(null);
 
+  // Email validation regex pattern
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+  // Constants for validation
+  const MIN_NAME_LENGTH = 2;
+  const MAX_NAME_LENGTH = 50;
+  const MIN_MESSAGE_LENGTH = 10;
+  const MAX_MESSAGE_LENGTH = 500;
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear validation errors when user types
+    setValidation({
+      ...validation,
+      [name]: { valid: true, message: '' }
+    });
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newValidation = { ...validation };
+    
+    // Validate name
+    if (!formState.name.trim()) {
+      newValidation.name = { valid: false, message: 'Name is required' };
+      isValid = false;
+    } else if (formState.name.length < MIN_NAME_LENGTH) {
+      newValidation.name = { valid: false, message: `Name must be at least ${MIN_NAME_LENGTH} characters` };
+      isValid = false;
+    } else if (formState.name.length > MAX_NAME_LENGTH) {
+      newValidation.name = { valid: false, message: `Name cannot exceed ${MAX_NAME_LENGTH} characters` };
+      isValid = false;
+    }
+    
+    // Validate email
+    if (!formState.email.trim()) {
+      newValidation.email = { valid: false, message: 'Email is required' };
+      isValid = false;
+    } else if (!emailPattern.test(formState.email)) {
+      newValidation.email = { valid: false, message: 'Please enter a valid email address' };
+      isValid = false;
+    }
+    
+    // Validate message
+    if (!formState.message.trim()) {
+      newValidation.message = { valid: false, message: 'Message is required' };
+      isValid = false;
+    } else if (formState.message.length < MIN_MESSAGE_LENGTH) {
+      newValidation.message = { valid: false, message: `Message must be at least ${MIN_MESSAGE_LENGTH} characters` };
+      isValid = false;
+    } else if (formState.message.length > MAX_MESSAGE_LENGTH) {
+      newValidation.message = { valid: false, message: `Message cannot exceed ${MAX_MESSAGE_LENGTH} characters` };
+      isValid = false;
+    }
+    
+    setValidation(newValidation);
+    return isValid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      return;
+    }
+    
     setFormStatus({ isSending: true, isSent: false, error: null });
 
     // Create a hidden form element
@@ -96,11 +167,13 @@ export default function ContactSection() {
                     <p className="text-blue-300 text-sm mt-4">Redirecting you back to the homepage in a few seconds...</p>
                   </div>
                 ) : (
-                  <div>
+                  <form onSubmit={handleSubmit} noValidate>
                     <div className="space-y-6">
                       {/* Name field */}
                       <div className="relative">
-                        <label htmlFor="name" className="block text-blue-200 text-sm font-medium mb-1">Your Name</label>
+                        <label htmlFor="name" className="block text-blue-200 text-sm font-medium mb-1">
+                          Your Name <span className="text-red-400">*</span>
+                        </label>
                         <div className="relative">
                           <input
                             type="text"
@@ -109,16 +182,31 @@ export default function ContactSection() {
                             value={formState.name}
                             onChange={handleChange}
                             required
-                            className="w-full bg-blue-800/30 text-blue-100 border border-blue-700 rounded-lg py-3 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                            minLength={MIN_NAME_LENGTH}
+                            maxLength={MAX_NAME_LENGTH}
+                            className={`w-full bg-blue-800/30 text-blue-100 border ${
+                              validation.name.valid ? 'border-blue-700' : 'border-red-500'
+                            } rounded-lg py-3 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent`}
                             placeholder="Your Name"
                           />
                           <User className="absolute left-3 top-3.5 text-blue-400 w-4 h-4" />
+                        </div>
+                        {!validation.name.valid && (
+                          <div className="flex items-center mt-1 text-red-400 text-sm">
+                            <AlertCircle className="w-3 h-3 mr-1" />
+                            {validation.name.message}
+                          </div>
+                        )}
+                        <div className="mt-1 text-blue-300 text-xs">
+                          {formState.name.length}/{MAX_NAME_LENGTH} characters
                         </div>
                       </div>
                       
                       {/* Email field */}
                       <div className="relative">
-                        <label htmlFor="email" className="block text-blue-200 text-sm font-medium mb-1">Email Address</label>
+                        <label htmlFor="email" className="block text-blue-200 text-sm font-medium mb-1">
+                          Email Address <span className="text-red-400">*</span>
+                        </label>
                         <div className="relative">
                           <input
                             type="email"
@@ -127,26 +215,51 @@ export default function ContactSection() {
                             value={formState.email}
                             onChange={handleChange}
                             required
-                            className="w-full bg-blue-800/30 text-blue-100 border border-blue-700 rounded-lg py-3 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                            placeholder="Your Email"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            className={`w-full bg-blue-800/30 text-blue-100 border ${
+                              validation.email.valid ? 'border-blue-700' : 'border-red-500'
+                            } rounded-lg py-3 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent`}
+                            placeholder="your.email@example.com"
                           />
                           <Mail className="absolute left-3 top-3.5 text-blue-400 w-4 h-4" />
                         </div>
+                        {!validation.email.valid && (
+                          <div className="flex items-center mt-1 text-red-400 text-sm">
+                            <AlertCircle className="w-3 h-3 mr-1" />
+                            {validation.email.message}
+                          </div>
+                        )}
                       </div>
                       
                       {/* Message field */}
                       <div className="relative">
-                        <label htmlFor="message" className="block text-blue-200 text-sm font-medium mb-1">Message</label>
+                        <label htmlFor="message" className="block text-blue-200 text-sm font-medium mb-1">
+                          Message <span className="text-red-400">*</span>
+                        </label>
                         <textarea
                           id="message"
                           name="message"
                           value={formState.message}
                           onChange={handleChange}
                           required
+                          minLength={MIN_MESSAGE_LENGTH}
+                          maxLength={MAX_MESSAGE_LENGTH}
                           rows={4}
-                          className="w-full bg-blue-800/30 text-blue-100 border border-blue-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none"
+                          className={`w-full bg-blue-800/30 text-blue-100 border ${
+                            validation.message.valid ? 'border-blue-700' : 'border-red-500'
+                          } rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none`}
                           placeholder="Your message here..."
                         />
+                        {!validation.message.valid && (
+                          <div className="flex items-center mt-1 text-red-400 text-sm">
+                            <AlertCircle className="w-3 h-3 mr-1" />
+                            {validation.message.message}
+                          </div>
+                        )}
+                        <div className="mt-1 text-blue-300 text-xs flex justify-between">
+                          <span>{formState.message.length}/{MAX_MESSAGE_LENGTH} characters</span>
+                          <span>{MIN_MESSAGE_LENGTH} characters minimum</span>
+                        </div>
                       </div>
                       
                       {/* Error message */}
@@ -158,7 +271,7 @@ export default function ContactSection() {
                       
                       {/* Submit button */}
                       <button
-                        onClick={handleSubmit}
+                        type="submit"
                         disabled={formStatus.isSending}
                         className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
                       >
@@ -178,7 +291,7 @@ export default function ContactSection() {
                         </span>
                       </button>
                     </div>
-                  </div>
+                  </form>
                 )}
               </div>
             </div>
