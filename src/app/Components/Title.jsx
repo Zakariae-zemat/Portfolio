@@ -80,7 +80,7 @@ export default function DeveloperIntro() {
 
   const downloadCV = (language) => {
     const fileName = language === 'english' ? 'ZakariaeZemat_CV_EN.pdf' : 'ZakariaeZemat_CV_FR.pdf';
-    const filePath = language === 'english' ? '/Zakariae_Zemat_EN.pdf' : '/ZEMAT_Zakariae _FR.pdf';
+    const filePath = language === 'english' ? '/Zakariae_Zemat_EN.pdf' : '/ZEMAT_Zakariae _CV.pdf';
     
     const link = document.createElement('a');
     link.href = filePath;
