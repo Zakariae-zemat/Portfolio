@@ -40,7 +40,7 @@ const AboutMe = () => {
             <FaMapMarkerAlt className="text-indigo-400" /> <span className="font-bold">Based in:</span> Morocco
           </div>
           <div className="flex items-center gap-2">
-            <FaEnvelope className="text-indigo-400" /> <span className="font-bold">Email:</span> zakariae@example.com
+            <FaEnvelope className="text-indigo-400" /> <span className="font-bold">Email:</span> zakariaezemat@gmail.com
           </div>
           <div className="flex items-center gap-2">
             <FaGlobe className="text-indigo-400" /> <span className="font-bold">Languages:</span> English, Arabic, French
