@@ -31,6 +31,24 @@ export default function CertificatesGrid() {
       image: "/scrum.jpg",
       skills: ["Scrum", "Agile Methodology"],
       link: "#"
+    },
+    {
+      id: 4,
+      title: "OCI AI Foundations Associate",
+      issuer: "Oracle",
+      date: "October 2025",
+      image: "/oracle.png",
+      skills: ["AI Foundations", "Oracle Cloud"],
+      link: "#"
+    },
+    {
+      id: 5,
+      title: "Continuous Integration and Continuous Delivery (CI/CD)",
+      issuer: "Coursera - IBM",
+      date: "October 2025",
+      image: "/SBC.jpg",
+      skills: ["CI/CD", "DevOps", "IBM Cloud"],
+      link: "#"
     }
   ];
   

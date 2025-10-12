@@ -8,15 +8,23 @@ import { HiChevronDown } from 'react-icons/hi';
 export default function DeveloperIntro() {
   const greeting = "Hello, World! 👋";
   const nameIntro = "I'm Zakariae Zemat";
-  const roles = ["Software Engineer", "Web Developer"];
-  const [currentRole, setCurrentRole] = useState('');
+  const roles = ["Software Engineer", "Web Developer", "Content Creator"];
+  const [currentRole, setCurrentRole] = useState('Software Engineer');
   const [cursorVisible, setCursorVisible] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // Handle typing animation
+  // Set mounted state to prevent hydration mismatch
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Handle typing animation - only after component is mounted
+  useEffect(() => {
+    if (!mounted) return;
+    
     let index = 0;
     let charIndex = 0;
     let typingForward = true;
@@ -59,7 +67,7 @@ export default function DeveloperIntro() {
       clearInterval(typeInterval);
       clearInterval(cursorInterval);
     };
-  }, []);
+  }, [mounted]);
 
   // Handle click outside to close dropdown
   useEffect(() => {
@@ -79,15 +87,15 @@ export default function DeveloperIntro() {
   };
 
   const downloadCV = (language) => {
-    const fileName = language === 'english' ? 'ZakariaeZemat_CV_EN.pdf' : 'ZakariaeZemat_CV_FR.pdf';
-    const filePath = language === 'english' ? '/Zakariae_Zemat_EN.pdf' : '/ZEMAT_Zakariae _CV.pdf';
-    
-    const link = document.createElement('a');
-    link.href = filePath;
-    link.download = fileName;
-    link.click();
-    
-    setDropdownOpen(false);
+  const fileName = language === 'english' ? 'ZAKARIAE_ZEMAT_CV.english.pdf' : 'ZAKARIAE_ZEMAT_CV.français.pdf';
+  const filePath = language === 'english' ? '/ZAKARIAE_ZEMAT_CV.english.pdf' : '/ZAKARIAE_ZEMAT_CV.français.pdf';
+  const link = document.createElement('a');
+  link.href = filePath;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  setDropdownOpen(false);
   };
 
   const contactMe = () => {
@@ -109,7 +117,7 @@ export default function DeveloperIntro() {
       {/* Role with typing effect */}
       <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent min-h-[50px] max-w-full break-words">
         {currentRole}
-        <span className="text-cyan-400 animate-pulse">{cursorVisible ? '|' : ''}</span>
+        <span className="text-cyan-400 animate-pulse">{mounted && cursorVisible ? '|' : ''}</span>
       </h2>
       
       {/* Tagline */}
