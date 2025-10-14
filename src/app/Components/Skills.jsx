@@ -44,7 +44,7 @@ const technicalSkills = [
 
     // DevOps and Cloud
     { name: "Docker", icon: <FaDocker className="text-blue-400" />, category: "DevOps and Cloud" },
-    { name: "CI/CD GitHub Actions", icon: <TbCloudCog className="text-indigo-500" />, category: "DevOps and Cloud" },
+    { name: "CI/CD", icon: <TbCloudCog className="text-indigo-500" />, category: "DevOps and Cloud" },
     { name: "AWS", icon: <FaAws className="text-orange-400" />, category: "DevOps and Cloud" },
 
     // Observability and Monitoring

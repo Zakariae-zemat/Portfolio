@@ -5,7 +5,7 @@ import { FaLink, FaCode } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function ProjectCard({ title, description, imageSrc, techStack, type, githubLink, comingSoon }) {
+export default function ProjectCard({ title, description, imageSrc, techStack, type, githubLink, comingSoon, discontinued }) {
     const controls = useAnimation();
     const { ref, inView } = useInView({ triggerOnce: false });
     const [showTooltip, setShowTooltip] = useState(false);
@@ -56,6 +56,11 @@ export default function ProjectCard({ title, description, imageSrc, techStack, t
                     {type === 'academic' && (
                         <span className="text-xs px-3 py-1 bg-red-400/20 text-red-300 rounded-md w-fit mt-1 md:mt-0">
                             <FaCode className="inline-block mr-1" /> Academic Project
+                        </span>
+                    )}
+                    {discontinued && (
+                        <span className="text-xs px-3 py-1 bg-gray-500/20 text-gray-400 rounded-md w-fit mt-1 md:mt-0">
+                            Discontinued
                         </span>
                     )}
                 </div>

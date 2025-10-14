@@ -4,6 +4,30 @@ import ProjectCard from './ProjectCard';
 export default function Projects() {
     const projects = [
         {
+            title: "Insurance Management System",
+            description: "Full-stack insurance platform with JWT/2FA authentication, OCR integration, and predictive analytics. Containerized with Docker, monitored via Prometheus/Grafana/Loki, and deployed on AWS with CI/CD automation.",
+            imageSrc: "/assurix.png",
+            techStack: ["Spring Boot", "Angular", "Docker", "AWS", "Prometheus", "Grafana","Loki", "CI/CD"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            title: "Sovereign AI Gateway",
+            description: "Contributing to a Moroccan AI platform inspired by OpenRouter. Built with microservices architecture, LLM integration, Docker containerization, and Azure Cloud deployment with full observability.",
+            imageSrc: "/image1.png",
+            techStack: ["FastAPI","Spring Boot", "React","Terraform", "Docker", "Azure", "CI/CD","PostgreSQL"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            title: "Course Registration & Payment Platform",
+            description: "Microservices-based platform for course enrollment and payments. Implements event-driven architecture with Kafka, Redis caching, API Gateway, and deployed on Oracle Cloud with monitoring.",
+            imageSrc: "/image.png",
+            techStack: ["Spring Boot", "NextJS","k8s","Terraform","Kafka", "Redis", "PostgreSQL", "clerk", "Prometheus","Grafana","Loki", "OCI"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
             title: "LifeLinkAI: Cross-Platform Blood Donation App",
             description: "LifeLinkAI is a cross-platform application for blood donation, available on both web and mobile. It won 4th place in the OpportunAI Hackathon.",
             imageSrc: "/bdpic.png",
@@ -13,12 +37,12 @@ export default function Projects() {
         },        
         {
             title: "Student Magazine Web Platform",
-            description: "Leading the ongoing development of a student magazine platform. The project uses Spring Boot, Next.js, and PostgreSQL, following Scrum methodology with Jira.",
+            description: "Led development of a student magazine platform using Spring Boot, Next.js, and PostgreSQL. Project discontinued after initial development phase.",
             imageSrc: "/magazine.png",
             techStack: ["Spring Boot", "Next.js", "PostgreSQL", "Docker", "Jira"],
             type: "professional",
             githubLink: "https://github.com/zzemat/Magazine-IMPACT",
-            comingSoon: true  // Add this flag to indicate it's coming soon
+            discontinued: true
         },
         {
             title: "Real-Time Job Offers Aggregator",

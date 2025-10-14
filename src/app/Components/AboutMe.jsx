@@ -27,12 +27,14 @@ const AboutMe = () => {
         </div>
 
         <p className="text-gray-300 text-lg leading-relaxed">
-              I'm Zakariae Zemat, a Software Engineer with a focus on full-stack web development and a strong interest in building scalable SaaS products. I enjoy translating ideas into clean, functional code and crafting intuitive user experiences. I'm currently expanding my skills into DevOps and beginning to explore MLOps, aiming to understand how to streamline deployment workflows and integrate machine learning into real-world applications. I'm driven by curiosity, continuous learning, and the challenge of turning complex problems into practical solutions.
-
+          I'm <strong>Zakariae Zemat</strong> a Software Engineer who loves building products that actually matter.  
+          I design and ship clean, scalable full-stack applications with a sharp eye for detail and performance.   
+          Currently leveling up my expertise in DevOps and cloud architecture to bring ideas from concept to production faster, smarter, better.
           <br />
           <br />
-          <em>Outside of work, I enjoy playing football, watching films and series and listening to podcasts. I'm also a keen follower of football leagues and matches.</em>
+          <em>Off the screen, you’ll find me watching films and series and listening to podcasts.</em>
         </p>
+
 
         {/* Key Facts */}
         <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-400">
