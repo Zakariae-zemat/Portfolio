@@ -1,0 +1,99 @@
+"use client";
+import ProjectCard from './ProjectCard';
+
+export default function Projects() {
+    const projects = [
+        {
+            title: "Insurance Management System",
+            description: "Full-stack insurance platform with JWT/2FA authentication, OCR integration, and predictive analytics. Containerized with Docker, monitored via Prometheus/Grafana/Loki, and deployed on AWS with CI/CD automation.",
+            imageSrc: "/assurix.png",
+            techStack: ["Spring Boot", "Angular", "Docker", "AWS", "Prometheus", "Grafana","Loki", "CI/CD"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            title: "Sovereign AI Gateway",
+            description: "Contributing to a Moroccan AI platform inspired by OpenRouter. Built with microservices architecture, LLM integration, Docker containerization, and Azure Cloud deployment with full observability.",
+            imageSrc: "/image1.png",
+            techStack: ["FastAPI","Spring Boot", "React","Terraform", "Docker", "Azure", "CI/CD","PostgreSQL"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            title: "Course Registration & Payment Platform",
+            description: "Microservices-based platform for course enrollment and payments. Implements event-driven architecture with Kafka, Redis caching, API Gateway, and deployed on Oracle Cloud with monitoring.",
+            imageSrc: "/image.png",
+            techStack: ["Spring Boot", "NextJS","k8s","Terraform","Kafka", "Redis", "PostgreSQL", "clerk", "Prometheus","Grafana","Loki", "OCI"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            title: "LifeLinkAI: Cross-Platform Blood Donation App",
+            description: "LifeLinkAI is a cross-platform application for blood donation, available on both web and mobile. It won 4th place in the OpportunAI Hackathon.",
+            imageSrc: "/bdpic.png",
+            techStack: ["FastAPI", "Next.js", "Firebase", "Docker", "XGBoost", "Flutter"],
+            type: "professional",
+            githubLink: "https://blood-donation-rosy-eight.vercel.app"
+        },        
+        {
+            title: "Student Magazine Web Platform",
+            description: "Led development of a student magazine platform using Spring Boot, Next.js, and PostgreSQL. Project discontinued after initial development phase.",
+            imageSrc: "/magazine.png",
+            techStack: ["Spring Boot", "Next.js", "PostgreSQL", "Docker", "Jira"],
+            type: "professional",
+            githubLink: "https://github.com/zzemat/Magazine-IMPACT",
+            discontinued: true
+        },
+        {
+            title: "Real-Time Job Offers Aggregator",
+            description: "Developed a full-stack real-time job offers platform during an internship. Captures data from external APIs, processes it with Kafka and Talend ETL, stores it in MySQL, and displays it via a web platform.",
+            imageSrc: "/pfa.png",
+            techStack: ["Spring Boot", "Apache Kafka", "Talend OS", "MySQL", "JavaScript", "HTML", "Tailwind CSS"],
+            type: "professional",
+            githubLink: "https://github.com/Zakariae-zemat/PFA"
+        },
+        {
+            title: "Task Management System",
+            description: "A web app designed to manage tasks efficiently with deadlines.",
+            imageSrc: "/tasks.png",
+            techStack: ["React", "Spring boot", "MySQL"],
+            type: "personal",
+            githubLink: "https://github.com/Zakariae-zemat/Tasks-Management"
+        },
+        {
+            title: "Hotel Management Web Application",
+            description: "Built a hotel management system using Spring Boot, Spring Security, React, and MySQL. Includes role-based access control, secure authentication, and data management for guests, rooms, and bookings.",
+            imageSrc: "/hotell.png",
+            techStack: ["Spring Boot", "Spring Security", "React", "MySQL"],
+            type: "academic",
+            githubLink: "https://github.com/Zakariae-zemat/hotel-management"
+        },
+        {
+            title: "Project & Collaboration Desktop App",
+            description: "Built a project management desktop app with Java Swing, JDBC, and MySQL for task tracking, deadlines, and team collaboration.",
+            imageSrc: "/swingp.png",
+            techStack: ["Java ","Swing", "JDBC", "MySQL"],
+            type: "academic",
+            githubLink: "https://github.com/Zakariae-zemat/Gestion-des-projets"
+        }
+    ];
+    
+    return (
+        <section id="projects" className="text-white py-20 flex flex-col items-center text-center">
+            <div className="flex flex-col items-center mb-16">
+                <h2 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-4">
+                    Projects
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
+            </div>
+            <div className="space-y-8 w-full max-w-6xl">
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                ))}
+            </div>
+            <div className="mt-16 flex justify-center">
+          <div className="w-1 h-20 bg-gradient-to-b from-blue-400 to-transparent"></div>
+        </div>
+        </section>
+    );
+}
