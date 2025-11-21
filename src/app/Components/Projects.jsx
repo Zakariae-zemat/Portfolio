@@ -15,35 +15,28 @@ export default function Projects() {
             description: "Full-stack insurance platform with JWT/2FA authentication, OCR integration, and predictive analytics. Containerized with Docker, monitored via Prometheus/Grafana/Loki, and deployed on AWS with CI/CD automation.",
             thumbnail: "/eassurance/eassurance_thmbnail.jpg",
             screenshots: [
+                "/eassurance/Capture d'écran 2025-02-17 222314.png",
+                "/eassurance/Capture d'écran 2025-07-08 131330.png",
+                "/eassurance/Capture d'écran 2025-07-11 110042.png",
+                "/eassurance/Capture d'écran 2025-07-14 110920.png",
+                "/eassurance/Capture d'écran 2025-08-30 134916.png",
+                "/eassurance/Capture d'écran 2025-08-30 134936.png",
                 "/eassurance/Capture d'écran 2025-11-03 175514.png",
                 "/eassurance/Capture d'écran 2025-11-03 175538.png",
                 "/eassurance/Capture d'écran 2025-11-03 175658.png",
                 "/eassurance/Capture d'écran 2025-11-03 175956.png",
                 "/eassurance/Capture d'écran 2025-11-03 180106.png",
                 "/eassurance/Capture d'écran 2025-11-03 180138.png",
-                "/eassurance/Capture d'écran 2025-11-03 180215.png"
+                "/eassurance/Capture d'écran 2025-11-03 180151.png",
+                "/eassurance/Capture d'écran 2025-11-03 180215.png",
+                "/eassurance/Capture d'écran 2025-11-03 180246.png",
+                "/eassurance/Capture d'écran 2025-11-03 180303.png",
+                "/eassurance/Capture d'écran 2025-11-03 180334.png",
+                "/eassurance/Capture d'écran 2025-11-03 180408.png",
+                "/eassurance/Capture d'écran 2025-11-03 180425.png",
+                "/eassurance/Capture d'écran 2025-11-03 180517.png"
             ],
             techStack: ["Spring Boot", "Angular", "Docker", "AWS", "Prometheus", "Grafana", "Loki", "CI/CD"],
-            type: "professional",
-            githubLink: "#"
-        },
-        {
-            id: 2,
-            title: "Sovereign AI Gateway",
-            description: "Contributing to a Moroccan AI platform inspired by OpenRouter. Built with microservices architecture, LLM integration, Docker containerization, and Azure Cloud deployment with full observability.",
-            thumbnail: "/image1.png",
-            screenshots: ["/image1.png"],
-            techStack: ["FastAPI", "Spring Boot", "React", "Terraform", "Docker", "Azure", "CI/CD", "PostgreSQL"],
-            type: "professional",
-            githubLink: "#"
-        },
-        {
-            id: 3,
-            title: "Course Registration & Payment Platform",
-            description: "Microservices-based platform for course enrollment and payments. Implements event-driven architecture with Kafka, Redis caching, API Gateway, and deployed on Oracle Cloud with monitoring.",
-            thumbnail: "/image.png",
-            screenshots: ["/image.png"],
-            techStack: ["Spring Boot", "Next.js", "k8s", "Terraform", "Kafka", "Redis", "PostgreSQL", "Clerk", "Prometheus", "Grafana", "Loki", "OCI"],
             type: "professional",
             githubLink: "#"
         },
@@ -53,16 +46,21 @@ export default function Projects() {
             description: "LifeLinkAI is a cross-platform application for blood donation, available on both web and mobile. It won 4th place in the OpportunAI Hackathon.",
             thumbnail: "/lifelinkai/lifelinkai_thmbnail.png",
             screenshots: [
-                "/lifelinkai/Capture d'écran 2025-11-03 172647.png",
                 "/lifelinkai/Capture d'écran 2025-04-20 232130.png",
                 "/lifelinkai/Capture d'écran 2025-04-20 234548.png",
-                "/lifelinkai/Capture d'écran 2025-04-22 150511.png"
+                "/lifelinkai/Capture d'écran 2025-04-21 003835.png",
+                "/lifelinkai/Capture d'écran 2025-04-22 150511.png",
+                "/lifelinkai/Capture d'écran 2025-05-02 164357.png",
+                "/lifelinkai/Capture d'écran 2025-05-02 164600.png",
+                "/lifelinkai/Capture d'écran 2025-05-04 140149.png",
+                "/lifelinkai/Capture d'écran 2025-06-03 154258.png",
+                "/lifelinkai/Capture d'écran 2025-11-03 172647.png"
             ],
             techStack: ["FastAPI", "Next.js", "Firebase", "Docker", "XGBoost", "Flutter"],
             type: "professional",
             githubLink: "https://blood-donation-rosy-eight.vercel.app",
             liveLink: "https://blood-donation-rosy-eight.vercel.app"
-        },        
+        },   
         {
             id: 5,
             title: "IMPACT Club Landing Page",
@@ -78,6 +76,41 @@ export default function Projects() {
             githubLink: "#"
         },
         {
+            id: 2,
+            title: "Sovereign AI Gateway",
+            description: "Contributing to a Moroccan AI platform inspired by OpenRouter. Built with microservices architecture, LLM integration, Docker containerization, and Azure Cloud deployment with full observability.",
+            thumbnail: "/xai_project/thumbnails.png",
+            screenshots: [
+                "/xai_project/image01.png",
+                "/xai_project/image02.png",
+                "/xai_project/image32.png",
+                "/xai_project/image78.png",
+                "/xai_project/image90.png",
+                "/xai_project/image098.png"
+            ],
+            techStack: ["FastAPI", "Spring Boot", "React", "Terraform", "Docker", "Azure", "CI/CD", "PostgreSQL"],
+            type: "professional",
+            githubLink: "#"
+        },
+        {
+            id: 3,
+            title: "Course Registration & Payment Platform",
+            description: "Microservices-based platform for course enrollment and payments. Implements event-driven architecture with Kafka, Redis caching, API Gateway, and deployed on Oracle Cloud with monitoring.",
+            thumbnail: "/e-learning/image2.png",
+            screenshots: [
+                "/e-learning/image2.png",
+                "/e-learning/image23.png",
+                "/e-learning/image34.png",
+                "/e-learning/image37.png",
+                "/e-learning/image78.png",
+                "/e-learning/image89.png",
+                "/e-learning/image200.png"
+            ],
+            techStack: ["Spring Boot", "Next.js", "k8s", "Terraform", "Kafka", "Redis", "PostgreSQL", "Clerk", "Prometheus", "Grafana", "Loki", "OCI"],
+            type: "professional",
+            githubLink: "#"
+        },     
+        {
             id: 6,
             title: "Student Magazine Web Platform",
             description: "Led development of a student magazine platform using Spring Boot, Next.js, and PostgreSQL. Project discontinued after initial development phase.",
@@ -85,7 +118,9 @@ export default function Projects() {
             screenshots: [
                 "/magazine/1762200910142.png",
                 "/magazine/Capture d'écran 2025-02-19 113227.png",
-                "/magazine/Capture d'écran 2025-03-20 140027.png"
+                "/magazine/Capture d'écran 2025-03-20 140027.png",
+                "/magazine/Capture d'écran 2025-03-28 151211.png",
+                "/magazine/Capture d'écran 2025-03-28 160653.png"
             ],
             techStack: ["Spring Boot", "Next.js", "PostgreSQL", "Docker", "Jira"],
             type: "professional",
@@ -141,11 +176,17 @@ export default function Projects() {
             description: "Built a project management desktop app with Java Swing, JDBC, and MySQL for task tracking, deadlines, and team collaboration.",
             thumbnail: "/javaswing/javaswing_thambnail.png",
             screenshots: [
+                "/javaswing/Capture d'écran 2025-03-20 150939.png",
                 "/javaswing/Capture d'écran 2025-11-03 173028.png",
                 "/javaswing/Capture d'écran 2025-11-03 173146.png",
                 "/javaswing/Capture d'écran 2025-11-03 173200.png",
                 "/javaswing/Capture d'écran 2025-11-03 173215.png",
-                "/javaswing/Capture d'écran 2025-11-03 173232.png"
+                "/javaswing/Capture d'écran 2025-11-03 173232.png",
+                "/javaswing/Capture d'écran 2025-11-03 173255.png",
+                "/javaswing/Capture d'écran 2025-11-03 173310.png",
+                "/javaswing/Capture d'écran 2025-11-03 173332.png",
+                "/javaswing/Capture d'écran 2025-11-03 173343.png",
+                "/javaswing/Capture d'écran 2025-11-03 173355.png"
             ],
             techStack: ["Java", "Swing", "JDBC", "MySQL"],
             type: "academic",

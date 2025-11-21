@@ -10,7 +10,7 @@ export default function CertificatesGrid() {
       title: "OCA, Java SE 8 Programmer",
       issuer: "Oracle University",
       date: "April 2025",
-      image: "/oracle.png",
+      image: "/Certificat/oraclecertif.png",
       skills: ["Java Programming", "OOP Concepts"],
       link: "#"
     },
@@ -19,7 +19,7 @@ export default function CertificatesGrid() {
       title: "Spring Boot & Hibernate",
       issuer: "Udemy",
       date: "Nov 2024",
-      image: "/SBC.jpg",
+      image: "/Certificat/SBC.jpg",
       skills: ["Spring Boot", "Hibernate"],
       link: "#"
     },
@@ -28,7 +28,7 @@ export default function CertificatesGrid() {
       title: "Master Scrum Basics",
       issuer: "Udemy",
       date: "May 2025",
-      image: "/scrum.jpg",
+      image: "/Certificat/scrum.jpg",
       skills: ["Scrum", "Agile Methodology"],
       link: "#"
     },
@@ -37,17 +37,53 @@ export default function CertificatesGrid() {
       title: "OCI AI Foundations Associate",
       issuer: "Oracle",
       date: "October 2025",
-      image: "/oracle.png",
+      image: "/Certificat/CertifOCIAI.png",
       skills: ["AI Foundations", "Oracle Cloud"],
       link: "#"
     },
     {
       id: 5,
-      title: "Continuous Integration and Continuous Delivery (CI/CD)",
-      issuer: "Coursera - IBM",
-      date: "October 2025",
-      image: "/SBC.jpg",
-      skills: ["CI/CD", "DevOps", "IBM Cloud"],
+      title: "OCI Foundations Associate",
+      issuer: "Oracle",
+      date: "September 2025",
+      image: "/Certificat/CertificatOCI.png",
+      skills: ["Oracle Cloud", "Infrastructure", "Cloud Computing"],
+      link: "#"
+    },
+    {
+      id: 7,
+      title: "AWS Concepts",
+      issuer: "AWS Training",
+      date: "2024",
+      image: "/Certificat/AWS_Concepts.png",
+      skills: ["AWS", "Cloud Computing", "Infrastructure"],
+      link: "#"
+    },
+    {
+      id: 8,
+      title: "Introduction to Docker",
+      issuer: "Online Learning",
+      date: "2024",
+      image: "/Certificat/Introduction_to_Docker.png",
+      skills: ["Docker", "Containerization", "DevOps"],
+      link: "#"
+    },
+    {
+      id: 9,
+      title: "Git and GitHub",
+      issuer: "Online Training",
+      date: "2024",
+      image: "/Certificat/Git_and_GitHub.png",
+      skills: ["Git", "GitHub", "Version Control"],
+      link: "#"
+    },
+    {
+      id: 10,
+      title: "OCP Java SE 17 Developer",
+      issuer: "Oracle",
+      date: "2025",
+      image: "/Certificat/OCP_JAVA_SE_17_Developer.png",
+      skills: ["Java 17", "Advanced Java", "OOP"],
       link: "#"
     }
   ];

@@ -87,8 +87,8 @@ export default function DeveloperIntro() {
   };
 
   const downloadCV = (language) => {
-  const fileName = language === 'english' ? 'ZAKARIAE_ZEMAT_CV.english.pdf' : 'ZAKARIAE_ZEMAT_CV.français.pdf';
-  const filePath = language === 'english' ? '/ZAKARIAE_ZEMAT_CV.english.pdf' : '/ZAKARIAE_ZEMAT_CV.français.pdf';
+  const fileName = language === 'english' ? 'CV_ZAKARIAE_ZEMAT_english.pdf' : 'CV_ZEMAT_ZAKARIAE.pdf';
+  const filePath = language === 'english' ? '/CV/CV_ZAKARIAE_ZEMAT_english.pdf' : '/CV/CV_ZEMAT_ZAKARIAE.pdf';
   const link = document.createElement('a');
   link.href = filePath;
   link.download = fileName;
@@ -110,7 +110,7 @@ export default function DeveloperIntro() {
       </h2>
       
       {/* Name with subtle animation */}
-      <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 animate-slideIn max-w-full break-words">
+      <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 animate-slideIn max-w-full whitespace-nowrap">
         {nameIntro}
       </h1>
       
